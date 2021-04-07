@@ -15,6 +15,7 @@ class ProductCell: UICollectionViewCell {
     
     @IBOutlet weak var productBackGround: UIView!
     @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var shoeImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +24,8 @@ class ProductCell: UICollectionViewCell {
     
     func configure() {
         productBackGround.layer.cornerRadius = 10
-        productBackGround.backgroundColor = .systemIndigo
+        productBackGround.backgroundColor = .systemTeal
         productView.layer.cornerRadius = 10
+        shoeImage.layer.cornerRadius = 10
     }
 }
