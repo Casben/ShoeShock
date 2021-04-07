@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StoreFrontVC.swift
 //  ShoeShock
 //
 //  Created by Herbert Dodge on 4/7/21.
@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StoreFrontVC: UIViewController {
+    
+    //MARK: - Properties
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
-
 }
-
