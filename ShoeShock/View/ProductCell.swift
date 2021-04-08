@@ -10,7 +10,7 @@ import UIKit
 
 class ProductCell: UICollectionViewCell {
     
-    static let identifier = "ProductCell"
+    static let productCell = "ProductCell"
     
     
     @IBOutlet weak var productBackGround: UIView!
@@ -23,6 +23,7 @@ class ProductCell: UICollectionViewCell {
         super.awakeFromNib()
         configure()
     }
+
     
     private func configure() {
         productBackGround.layer.cornerRadius = 10
@@ -39,7 +40,10 @@ class ProductCell: UICollectionViewCell {
         
         priceLabel.text = "$\(product.price)"
         priceLabel.textColor = .systemGray2
+        
         shoeImageView.image = product.image
+        shoeImageView.layer.borderWidth = 4.0
+        shoeImageView.layer.borderColor = UIColor.systemBackground.cgColor
         
         
     }

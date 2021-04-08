@@ -17,6 +17,7 @@
 		CB77D6C2261DFC6000927FA9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6C1261DFC6000927FA9 /* ProductCell.swift */; };
 		CB77D6C6261E93CB00927FA9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6C5261E93CB00927FA9 /* Service.swift */; };
 		CB77D6CA261EA51700927FA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6C9261EA51700927FA9 /* Extensions.swift */; };
+		CB77D6D5261ED91E00927FA9 /* AddToCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6D4261ED91E00927FA9 /* AddToCartVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CB77D6C1261DFC6000927FA9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		CB77D6C5261E93CB00927FA9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		CB77D6C9261EA51700927FA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CB77D6D4261ED91E00927FA9 /* AddToCartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				CB77D6BA261DF14D00927FA9 /* StoreFrontVC.swift */,
+				CB77D6D4261ED91E00927FA9 /* AddToCartVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				CB77D6A2261DE9D500927FA9 /* AppDelegate.swift in Sources */,
 				CB77D6BF261DFB4E00927FA9 /* Product.swift in Sources */,
 				CB77D6C2261DFC6000927FA9 /* ProductCell.swift in Sources */,
+				CB77D6D5261ED91E00927FA9 /* AddToCartVC.swift in Sources */,
 				CB77D6A4261DE9D500927FA9 /* SceneDelegate.swift in Sources */,
 				CB77D6BB261DF14D00927FA9 /* StoreFrontVC.swift in Sources */,
 				CB77D6C6261E93CB00927FA9 /* Service.swift in Sources */,

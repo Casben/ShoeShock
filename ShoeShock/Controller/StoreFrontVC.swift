@@ -14,6 +14,7 @@ class StoreFrontVC: UIViewController {
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var moreCollectionView: UICollectionView!
     let shoes = Service.instance.shoes
+    let miscItems = Service.instance.miscItems
     
 
     override func viewDidLoad() {
@@ -25,6 +26,8 @@ class StoreFrontVC: UIViewController {
     func configure() {
         discoverCollectionView.delegate = self
         discoverCollectionView.dataSource = self
+        moreCollectionView.delegate = self
+        moreCollectionView.dataSource = self
     }
 
 }
@@ -32,14 +35,28 @@ class StoreFrontVC: UIViewController {
 
 extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shoes.count
+        if collectionView == self.discoverCollectionView {
+            return shoes.count
+        }
+        return miscItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = discoverCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
-        let product = shoes[indexPath.row]
-        cell.configureCell(with: product)
-        return cell
+        
+        if collectionView == self.discoverCollectionView {
+            let cell = discoverCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.productCell, for: indexPath) as! ProductCell
+            let product = shoes[indexPath.row]
+            cell.configureCell(with: product)
+            return cell
+        } else {
+            let cell = moreCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.productCell, for: indexPath) as! ProductCell
+            let product = miscItems[indexPath.row]
+            cell.configureCell(with: product)
+            
+            print(product.name)
+            return cell
+        }
+        
     }
     
     
