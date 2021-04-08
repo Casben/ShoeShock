@@ -13,6 +13,8 @@ class StoreFrontVC: UIViewController {
     
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var moreCollectionView: UICollectionView!
+    @IBOutlet weak var cartButton: UIBarButtonItem!
+    @IBOutlet weak var cartQuantityLabel: UIBarButtonItem!
     
     let shoes = Service.instance.shoes
     let miscItems = Service.instance.miscItems
@@ -20,6 +22,7 @@ class StoreFrontVC: UIViewController {
     
     var selectedProduct: Product?
     var selectedProductColor: UIColor?
+    var cartQuantity = 0
     
 
     override func viewDidLoad() {
@@ -35,12 +38,19 @@ class StoreFrontVC: UIViewController {
         moreCollectionView.dataSource = self
     }
     
+    func updateCart(with product: SelectedProduct) {
+        cart.append(product)
+        cartButton.image = UIImage(systemName: "cart.fill")
+        cartQuantity += product.quantity
+        cartQuantityLabel.title = String(cartQuantity)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddToCartVC" {
             let addToCartVC = segue.destination as! AddToCartVC
             addToCartVC.selectedProduct = selectedProduct
             addToCartVC.selectedProductColor = selectedProductColor
-//            addToCartVC.delegate = self
+            addToCartVC.delegate = self
         }
     }
 
@@ -61,11 +71,13 @@ extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
             let cell = discoverCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.productCell, for: indexPath) as! ProductCell
             let product = shoes[indexPath.row]
             cell.configureCell(with: product)
+            cell.delegate = self
             return cell
         } else {
             let cell = moreCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.productCell, for: indexPath) as! ProductCell
             let product = miscItems[indexPath.row]
             cell.configureCell(with: product)
+            cell.delegate = self
             return cell
         }
     }
@@ -87,9 +99,14 @@ extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 extension StoreFrontVC: AddToCartDelegate {
-    func addToCartVC(_ controller: AddToCartVC, wantsToUpdateCartWith product: SelectedProduct) {
+    func addToCartDelegate(wantsToUpdateCartWith product: SelectedProduct) {
         dismiss(animated: true)
-        
+        updateCart(with: product)
     }
 }
 
+extension StoreFrontVC: ProductCellDelegate {
+    func productCell(wantsToAddToCart product: SelectedProduct) {
+        updateCart(with: product)
+    }
+}

@@ -45,9 +45,12 @@
                                                     <rect key="frame" x="38" y="16" width="175" height="250"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCD-Ds-kYO">
-                                                            <rect key="frame" x="134.5" y="4" width="20.5" height="22"/>
+                                                            <rect key="frame" x="135" y="4" width="20" height="22"/>
                                                             <color key="tintColor" systemColor="systemGrayColor"/>
-                                                            <state key="normal" image="heart" catalog="system"/>
+                                                            <state key="normal" image="plus.circle" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="heartButtonTapped:" destination="mKT-GO-aUT" eventType="touchUpInside" id="wS4-NR-Azn"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-f6-GCw">
                                                             <rect key="frame" x="-17" y="4" width="150" height="46"/>
@@ -105,6 +108,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="heartButton" destination="kCD-Ds-kYO" id="nBH-BW-UwA"/>
                                             <outlet property="priceLabel" destination="UKM-vL-YcM" id="aZ2-oP-Psa"/>
                                             <outlet property="productBackGround" destination="wM1-zV-5b4" id="8f5-Wv-dLB"/>
                                             <outlet property="productNameLabel" destination="EC7-kJ-FUe" id="2R4-sq-NPC"/>
@@ -151,9 +155,12 @@
                                                     <rect key="frame" x="38" y="16" width="175" height="200"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jE-Hy-Fu6">
-                                                            <rect key="frame" x="134.5" y="4" width="20.5" height="22"/>
+                                                            <rect key="frame" x="135" y="4" width="20" height="22"/>
                                                             <color key="tintColor" systemColor="systemGrayColor"/>
-                                                            <state key="normal" image="heart" catalog="system"/>
+                                                            <state key="normal" image="plus.circle" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="heartButtonTapped:" destination="BvG-ZV-tpF" eventType="touchUpInside" id="nOo-eM-KLG"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xIL-10-nh5">
                                                             <rect key="frame" x="-4" y="4" width="150" height="46"/>
@@ -207,6 +214,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="heartButton" destination="1jE-Hy-Fu6" id="pYE-9v-yQe"/>
                                             <outlet property="priceLabel" destination="UhS-FH-663" id="EiP-18-kVb"/>
                                             <outlet property="productBackGround" destination="qiw-PY-Ftm" id="mYa-It-34T"/>
                                             <outlet property="productNameLabel" destination="Bul-41-JQA" id="BVE-cj-fZ6"/>
@@ -254,11 +262,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shoe Shock" id="xC6-b3-eoY">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="4n1-Cj-sr3">
-                            <color key="tintColor" systemColor="systemGrayColor"/>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="cart" catalog="system" id="4n1-Cj-sr3">
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                            </barButtonItem>
+                            <barButtonItem title="0" id="NF9-lo-ROB">
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="cartButton" destination="4n1-Cj-sr3" id="GrO-3t-jw2"/>
+                        <outlet property="cartQuantityLabel" destination="NF9-lo-ROB" id="D94-Lj-CYB"/>
                         <outlet property="discoverCollectionView" destination="3fE-rT-3Gn" id="RFQ-lF-8HE"/>
                         <outlet property="moreCollectionView" destination="RF6-l0-81N" id="JSr-kV-QgV"/>
                         <segue destination="nyk-ZK-qLO" kind="presentation" identifier="toAddToCartVC" modalPresentationStyle="overCurrentContext" id="90z-aJ-EOl"/>
@@ -392,7 +407,7 @@
         <image name="ULTRA4D" width="840" height="840"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

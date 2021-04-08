@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddToCartDelegate: class {
-    func addToCartVC(_ controller: AddToCartVC, wantsToUpdateCartWith product: SelectedProduct)
+    func addToCartDelegate(wantsToUpdateCartWith product: SelectedProduct)
 }
 
 class AddToCartVC: UIViewController {
@@ -64,6 +64,6 @@ class AddToCartVC: UIViewController {
     @IBAction func addToCartButtonTapped(_ sender: UIButton) {
         let quantity = Int(quantityLabel.text!)!
         let cartProduct = SelectedProduct(product: selectedProduct, quantity: quantity)
-        delegate?.addToCartVC(self, wantsToUpdateCartWith: cartProduct)
+        delegate?.addToCartDelegate(wantsToUpdateCartWith: cartProduct)
     }
 }

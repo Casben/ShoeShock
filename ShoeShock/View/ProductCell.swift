@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol ProductCellDelegate: class {
+    func productCell(wantsToAddToCart product: SelectedProduct)
+}
 
 class ProductCell: UICollectionViewCell {
     
@@ -18,10 +21,19 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var shoeImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var heartButton: UIButton!
+    
+    weak var delegate: ProductCellDelegate?
+    var product: SelectedProduct!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configure()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        heartButton.setImage(UIImage(systemName: "plus.circle"), for: .normal)
     }
 
     
@@ -33,6 +45,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func configureCell(with product: Product) {
+        self.product = SelectedProduct(product: product, quantity: 1)
         productBackGround.backgroundColor = .randomColor()
         
         productNameLabel.text = product.name
@@ -57,5 +70,10 @@ class ProductCell: UICollectionViewCell {
         
         return UIColor(red: compRed, green: compGreen, blue: compBlue, alpha: 1.0)
 
+    }
+    
+    @IBAction func heartButtonTapped(_ sender: UIButton) {
+        sender.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        delegate?.productCell(wantsToAddToCart: product)
     }
 }
