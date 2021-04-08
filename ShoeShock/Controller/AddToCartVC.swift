@@ -38,7 +38,7 @@ class AddToCartVC: UIViewController {
         productImageView.layer.cornerRadius = 10
         productImageView.layer.borderColor = UIColor.systemBackground.cgColor
         productNameLabel.text = selectedProduct.name
-        priceLabel.text = "$\(selectedProduct.price)"
+        priceLabel.text = String(selectedProduct.price)
         configureButton()
         
     }
@@ -57,13 +57,13 @@ class AddToCartVC: UIViewController {
         let quantityValue = Int(sender.value)
         let updatedPrice = selectedProduct.price * quantityValue
         quantityLabel.text = String(quantityValue)
-        priceLabel.text = "$\(updatedPrice)"
-        
+        priceLabel.text = String(updatedPrice)
     }
     
     @IBAction func addToCartButtonTapped(_ sender: UIButton) {
         let quantity = Int(quantityLabel.text!)!
-        let cartProduct = SelectedProduct(product: selectedProduct, quantity: quantity)
+        let price = Int(priceLabel.text!)!
+        let cartProduct = SelectedProduct(product: selectedProduct, quantity: quantity, price: price)
         delegate?.addToCartDelegate(wantsToUpdateCartWith: cartProduct)
     }
 }

@@ -45,7 +45,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func configureCell(with product: Product) {
-        self.product = SelectedProduct(product: product, quantity: 1)
+        self.product = SelectedProduct(product: product, quantity: 1, price: 0)
         productBackGround.backgroundColor = .randomColor()
         
         productNameLabel.text = product.name
