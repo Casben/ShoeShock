@@ -261,6 +261,7 @@
                     <connections>
                         <outlet property="discoverCollectionView" destination="3fE-rT-3Gn" id="RFQ-lF-8HE"/>
                         <outlet property="moreCollectionView" destination="RF6-l0-81N" id="JSr-kV-QgV"/>
+                        <segue destination="nyk-ZK-qLO" kind="presentation" identifier="toAddToCartVC" modalPresentationStyle="overCurrentContext" id="90z-aJ-EOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -296,7 +297,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XK-cR-bZr">
                                         <rect key="frame" x="20" y="410" width="378" height="60"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="eUk-bF-Jfq"/>
                                         </constraints>
@@ -321,7 +322,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ShY-VH-yaR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vxG-ay-7KL" firstAttribute="trailing" secondItem="ShY-VH-yaR" secondAttribute="trailing" constant="2" id="1Fs-x2-SYX"/>
                             <constraint firstAttribute="bottom" secondItem="vxG-ay-7KL" secondAttribute="bottom" id="49a-Gj-nMz"/>
@@ -330,6 +331,7 @@
                     </view>
                     <connections>
                         <outlet property="addToCartButton" destination="3XK-cR-bZr" id="bNO-iC-wO5"/>
+                        <outlet property="cardView" destination="vxG-ay-7KL" id="blc-eG-vao"/>
                         <outlet property="cartStepper" destination="UKY-ZF-zdQ" id="NMC-dK-gpZ"/>
                         <outlet property="productImageView" destination="MoV-s1-QVA" id="pPL-oc-tzV"/>
                         <outlet property="quantityLabel" destination="x6k-uP-irC" id="sCC-xU-9b0"/>
@@ -369,6 +371,9 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

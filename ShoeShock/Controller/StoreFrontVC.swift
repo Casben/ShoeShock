@@ -15,6 +15,8 @@ class StoreFrontVC: UIViewController {
     @IBOutlet weak var moreCollectionView: UICollectionView!
     let shoes = Service.instance.shoes
     let miscItems = Service.instance.miscItems
+    var selectedProduct: Product?
+    var selectedProductColor: UIColor?
     
 
     override func viewDidLoad() {
@@ -28,6 +30,14 @@ class StoreFrontVC: UIViewController {
         discoverCollectionView.dataSource = self
         moreCollectionView.delegate = self
         moreCollectionView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddToCartVC" {
+            let addToCartVC = segue.destination as! AddToCartVC
+            addToCartVC.selectedProduct = selectedProduct
+            addToCartVC.selectedProductColor = selectedProductColor
+        }
     }
 
 }
@@ -52,12 +62,25 @@ extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
             let cell = moreCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.productCell, for: indexPath) as! ProductCell
             let product = miscItems[indexPath.row]
             cell.configureCell(with: product)
-            
-            print(product.name)
             return cell
         }
-        
     }
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.discoverCollectionView {
+            let selectedCell = collectionView.cellForItem(at: indexPath) as! ProductCell
+            selectedProductColor = selectedCell.productBackGround.backgroundColor
+            let productDetails = shoes[indexPath.row]
+            selectedProduct = Product(name: productDetails.name, price: productDetails.price, image: productDetails.image)
+            performSegue(withIdentifier: "toAddToCartVC", sender: self)
+        } else {
+            let selectedCell = collectionView.cellForItem(at: indexPath) as! ProductCell
+            selectedProductColor = selectedCell.productBackGround.backgroundColor
+            let productDetails = miscItems[indexPath.row]
+            selectedProduct = Product(name: productDetails.name, price: productDetails.price, image: productDetails.image)
+            performSegue(withIdentifier: "toAddToCartVC", sender: self)
+        }
+    }
 }
+
+
+
