@@ -5,11 +5,12 @@
 //  Created by Herbert Dodge on 4/7/21.
 //
 
-import Foundation
+import UIKit
 
 struct Product {
     var name: String
     var price: Double
+    let image: UIImage
 }
 
 struct SelectedProduct {

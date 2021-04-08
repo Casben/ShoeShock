@@ -19,6 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3fE-rT-3Gn" userLabel="Discover collection">
                                 <rect key="frame" x="0.0" y="144" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="ZZ0-Be-ElY"/>
                                 </constraints>
@@ -48,24 +49,18 @@
                                                             <color key="tintColor" systemColor="systemIndigoColor"/>
                                                             <state key="normal" image="heart" catalog="system"/>
                                                         </button>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-f6-GCw">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-f6-GCw">
                                                             <rect key="frame" x="-17" y="4" width="38.5" height="96"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHH-7V-gC5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="38.5" height="31"/>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                                                                    <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EC7-kJ-FUe">
-                                                                    <rect key="frame" x="0.0" y="31" width="38.5" height="34"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name GGFDGFDGDF" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EC7-kJ-FUe">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="38.5" height="71.5"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                                                     <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UKM-vL-YcM">
-                                                                    <rect key="frame" x="0.0" y="65" width="38.5" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="79.5" width="38.5" height="16.5"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                                     <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,11 +69,11 @@
                                                             </subviews>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ULTRA4D" translatesAutoresizingMaskIntoConstraints="NO" id="eSV-FI-8Au">
-                                                            <rect key="frame" x="30" y="76" width="150" height="175"/>
+                                                            <rect key="frame" x="30" y="46" width="150" height="200"/>
                                                             <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="150" id="hWj-wR-UHF"/>
-                                                                <constraint firstAttribute="height" constant="175" id="kOD-8J-Cs4"/>
+                                                                <constraint firstAttribute="height" constant="200" id="kOD-8J-Cs4"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -88,7 +83,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="Uv4-f6-GCw" secondAttribute="bottom" constant="150" id="EZV-YX-w9X"/>
                                                         <constraint firstItem="Uv4-f6-GCw" firstAttribute="leading" secondItem="hsR-Ui-wBt" secondAttribute="leadingMargin" constant="-25" id="Jfm-b4-BFx"/>
                                                         <constraint firstItem="eSV-FI-8Au" firstAttribute="leading" secondItem="hsR-Ui-wBt" secondAttribute="leading" constant="30" id="Olk-ut-ajz"/>
-                                                        <constraint firstItem="eSV-FI-8Au" firstAttribute="top" secondItem="kCD-Ds-kYO" secondAttribute="bottom" constant="50" id="QM2-Db-E6D"/>
+                                                        <constraint firstItem="eSV-FI-8Au" firstAttribute="top" secondItem="kCD-Ds-kYO" secondAttribute="bottom" constant="20" id="QM2-Db-E6D"/>
                                                         <constraint firstItem="kCD-Ds-kYO" firstAttribute="leading" secondItem="Uv4-f6-GCw" secondAttribute="trailing" constant="80" id="fgQ-Bd-KIm"/>
                                                         <constraint firstItem="Uv4-f6-GCw" firstAttribute="top" secondItem="kCD-Ds-kYO" secondAttribute="top" id="iZG-F7-AvD"/>
                                                         <constraint firstAttribute="height" constant="250" id="kf8-l7-f7x"/>
