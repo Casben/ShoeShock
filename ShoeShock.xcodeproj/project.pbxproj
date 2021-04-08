@@ -16,6 +16,7 @@
 		CB77D6BF261DFB4E00927FA9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6BE261DFB4E00927FA9 /* Product.swift */; };
 		CB77D6C2261DFC6000927FA9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6C1261DFC6000927FA9 /* ProductCell.swift */; };
 		CB77D6C6261E93CB00927FA9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6C5261E93CB00927FA9 /* Service.swift */; };
+		CB77D6CA261EA51700927FA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB77D6C9261EA51700927FA9 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CB77D6BE261DFB4E00927FA9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CB77D6C1261DFC6000927FA9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		CB77D6C5261E93CB00927FA9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		CB77D6C9261EA51700927FA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		CB77D6A0261DE9D500927FA9 /* ShoeShock */ = {
 			isa = PBXGroup;
 			children = (
+				CB77D6C8261EA50600927FA9 /* Utilities */,
 				CB77D6B9261DF13400927FA9 /* Model */,
 				CB77D6B8261DF12E00927FA9 /* View */,
 				CB77D6B7261DF12300927FA9 /* Controller */,
@@ -98,6 +101,14 @@
 				CB77D6C5261E93CB00927FA9 /* Service.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CB77D6C8261EA50600927FA9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CB77D6C9261EA51700927FA9 /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				CB77D6A4261DE9D500927FA9 /* SceneDelegate.swift in Sources */,
 				CB77D6BB261DF14D00927FA9 /* StoreFrontVC.swift in Sources */,
 				CB77D6C6261E93CB00927FA9 /* Service.swift in Sources */,
+				CB77D6CA261EA51700927FA9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

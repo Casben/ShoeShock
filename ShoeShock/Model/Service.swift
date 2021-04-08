@@ -7,14 +7,15 @@
 
 import UIKit
 
+
 class Service {
     
     static let instance = Service()
     
     var shoes = [
         Product(name: "ULTRA4D", price: 220, image: ProductImage.ultra4d),
-        Product(name: "NMD_R1 V2", price: 140, image: ProductImage.kaptir2),
-        Product(name: "KAPTIR 2.0", price: 85, image: ProductImage.ultra4d),
+        Product(name: "NMD_R1 V2", price: 140, image: ProductImage.nmd_r1),
+        Product(name: "KAPTIR 2.0", price: 85, image: ProductImage.kaptir2),
         Product(name: "ULTRABOOST 5.0 DNA", price: 85, image: ProductImage.ultraboost),
         Product(name: "ZX FURY", price: 200, image: ProductImage.zxfury),
         Product(name: "ZK 2K BOOST", price: 150, image: ProductImage.zkboost),

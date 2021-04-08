@@ -13,6 +13,7 @@ class StoreFrontVC: UIViewController {
     
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var moreCollectionView: UICollectionView!
+    let shoes = Service.instance.shoes
     
 
     override func viewDidLoad() {
@@ -24,7 +25,6 @@ class StoreFrontVC: UIViewController {
     func configure() {
         discoverCollectionView.delegate = self
         discoverCollectionView.dataSource = self
-//        discoverCollectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
     }
 
 }
@@ -32,12 +32,13 @@ class StoreFrontVC: UIViewController {
 
 extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return shoes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = discoverCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
-        
+        let product = shoes[indexPath.row]
+        cell.configureCell(with: product)
         return cell
     }
     
