@@ -9,7 +9,7 @@ import UIKit
 
 struct Product {
     var name: String
-    var price: Double
+    var price: Int
     let image: UIImage
 }
 

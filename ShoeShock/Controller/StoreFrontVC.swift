@@ -13,8 +13,11 @@ class StoreFrontVC: UIViewController {
     
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var moreCollectionView: UICollectionView!
+    
     let shoes = Service.instance.shoes
     let miscItems = Service.instance.miscItems
+    var cart = Service.instance.cartPorducts
+    
     var selectedProduct: Product?
     var selectedProductColor: UIColor?
     
@@ -37,6 +40,7 @@ class StoreFrontVC: UIViewController {
             let addToCartVC = segue.destination as! AddToCartVC
             addToCartVC.selectedProduct = selectedProduct
             addToCartVC.selectedProductColor = selectedProductColor
+//            addToCartVC.delegate = self
         }
     }
 
@@ -82,5 +86,10 @@ extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 }
 
-
+extension StoreFrontVC: AddToCartDelegate {
+    func addToCartVC(_ controller: AddToCartVC, wantsToUpdateCartWith product: SelectedProduct) {
+        dismiss(animated: true)
+        
+    }
+}
 
