@@ -25,11 +25,15 @@ class StoreFrontVC: UIViewController {
     var cartQuantity = 0
     
 
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
 
     }
+    
+    //MARK: - Helpers
     
     func configure() {
         discoverCollectionView.delegate = self
@@ -56,6 +60,7 @@ class StoreFrontVC: UIViewController {
 
 }
 
+//MARK: - UICollectionViewDataSource & UICollectionViewDelegate
 
 extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,12 +103,16 @@ extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 }
 
+//MARK: - AddToCartDelegate
+
 extension StoreFrontVC: AddToCartDelegate {
     func addToCartDelegate(wantsToUpdateCartWith product: SelectedProduct) {
         dismiss(animated: true)
         updateCart(with: product)
     }
 }
+
+//MARK: - ProductCellDelegate
 
 extension StoreFrontVC: ProductCellDelegate {
     func productCell(wantsToAddToCart product: SelectedProduct) {
