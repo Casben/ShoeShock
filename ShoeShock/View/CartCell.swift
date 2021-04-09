@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol CartCellDelegate: class {
+    func cartCell(wantsToUpdateTotalPriceAdd price: Int)
+    func cartCell(wantsToUpdateTotalPriceSubtract price: Int)
+}
+
 class CartCell: UITableViewCell {
     
     static let identifier = "CartCell"
@@ -15,8 +20,12 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var cartStepper: UIStepper!
     
+    var price: Int!
+    final var pricePerItem: Int!
+    var quantity: Int!
+    
+    var delegate: CartCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +41,28 @@ class CartCell: UITableViewCell {
         productNameLabel.text = item.product.name
         quantityLabel.text = String(item.quantity)
         priceLabel.text = String(item.price)
+        quantity = Int(item.quantity)
+        price = Int(item.price)
+        pricePerItem = price / quantity
+    }
+    
+    @IBAction func plusButtonTapped(_ sender: UIButton) {
+        quantity += 1
+        let updatedPrice = pricePerItem * quantity
+        priceLabel.text = String(updatedPrice)
+        quantityLabel.text = String(quantity)
+        price = updatedPrice
+        delegate?.cartCell(wantsToUpdateTotalPriceAdd: price)
+    }
+    
+    @IBAction func minusButtonTapped(_ sender: UIButton) {
+        quantity -= 1
+        let updatedPrice =  (pricePerItem * quantity)
+        print(updatedPrice)
+        priceLabel.text = String(updatedPrice)
+        quantityLabel.text = String(quantity)
+        price = updatedPrice
+        delegate?.cartCell(wantsToUpdateTotalPriceSubtract: price)
     }
 
 }

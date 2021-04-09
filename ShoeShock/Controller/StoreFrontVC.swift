@@ -59,7 +59,6 @@ class StoreFrontVC: UIViewController {
         } else {
             let cartVC = segue.destination as! CartVC
             cartVC.cart = cart
-//            print(cart)
         }
     }
     @IBAction func cartButtonTapped(_ sender: UIBarButtonItem) {

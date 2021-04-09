@@ -17,5 +17,6 @@ struct SelectedProduct {
     var product: Product
     var quantity = 0
     var price = 0
+    
 }
 
