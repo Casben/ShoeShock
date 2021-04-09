@@ -44,6 +44,7 @@ class StoreFrontVC: UIViewController {
     
     func updateCart(with product: SelectedProduct) {
         cart.append(product)
+        print(cart)
         cartButton.image = UIImage(systemName: "cart.fill")
         cartQuantity += product.quantity
         cartQuantityLabel.title = String(cartQuantity)
@@ -55,9 +56,16 @@ class StoreFrontVC: UIViewController {
             addToCartVC.selectedProduct = selectedProduct
             addToCartVC.selectedProductColor = selectedProductColor
             addToCartVC.delegate = self
+        } else {
+            let cartVC = segue.destination as! CartVC
+            cartVC.cart = cart
+//            print(cart)
         }
     }
-
+    @IBAction func cartButtonTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toCartVC", sender: self)
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource & UICollectionViewDelegate

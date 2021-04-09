@@ -30,7 +30,7 @@ class Service {
         Product(name: "SUPERLITE HAT", price: 24, image: ProductImage.hat)
     ]
     
-    var cartPorducts = [SelectedProduct]()
+    let cartPorducts = [SelectedProduct]()
     
     
     

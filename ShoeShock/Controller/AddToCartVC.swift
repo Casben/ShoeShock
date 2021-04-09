@@ -19,7 +19,7 @@ class AddToCartVC: UIViewController {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var cartStepper: UIStepper!
-    @IBOutlet weak var addToCartButton: UIButton!
+    @IBOutlet weak var addToCartButton: PurchaseButton!
     
     var selectedProduct: Product!
     var selectedProductColor: UIColor!
@@ -39,19 +39,10 @@ class AddToCartVC: UIViewController {
         productImageView.layer.borderColor = UIColor.systemBackground.cgColor
         productNameLabel.text = selectedProduct.name
         priceLabel.text = String(selectedProduct.price)
-        configureButton()
-        
+        addToCartButton.configureButtonTitle(withText: "Add to cart")
     }
     
-    func configureButton() {
-        addToCartButton.layer.cornerRadius = 10
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "cart")?.withRenderingMode(.alwaysTemplate)
-        imageAttachment.image?.withTintColor((addToCartButton.titleLabel?.textColor)!)
-        let attirbutedText = NSMutableAttributedString(string: "Add to cart ")
-        attirbutedText.append(NSAttributedString(attachment: imageAttachment))
-        addToCartButton.setAttributedTitle(attirbutedText, for: .normal)
-    }
+    
 
     @IBAction func stepperTapped(_ sender: UIStepper) {
         let quantityValue = Int(sender.value)

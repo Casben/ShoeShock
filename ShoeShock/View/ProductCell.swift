@@ -39,7 +39,6 @@ class ProductCell: UICollectionViewCell {
     
     private func configure() {
         productBackGround.layer.cornerRadius = 10
-        productBackGround.backgroundColor = .systemTeal
         productView.layer.cornerRadius = 10
         shoeImageView.layer.cornerRadius = 10
     }
