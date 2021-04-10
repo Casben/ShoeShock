@@ -263,7 +263,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Shoe Shock" id="xC6-b3-eoY">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="cart" catalog="system" id="4n1-Cj-sr3">
+                            <barButtonItem image="cart" catalog="system" id="4n1-Cj-sr3">
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                 <connections>
                                     <action selector="cartButtonTapped:" destination="BYZ-38-t0r" id="GdV-zl-s10"/>

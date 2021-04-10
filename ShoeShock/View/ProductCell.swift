@@ -31,6 +31,7 @@ class ProductCell: UICollectionViewCell {
         configure()
     }
     
+    
     private func configure() {
         productBackGround.layer.cornerRadius = 10
         productView.layer.cornerRadius = 10
@@ -50,8 +51,7 @@ class ProductCell: UICollectionViewCell {
         shoeImageView.image = product.image
         shoeImageView.layer.borderWidth = 4.0
         shoeImageView.layer.borderColor = UIColor.systemBackground.cgColor
-        
-        
+                
     }
     
     func getComplementaryColorFor(_ color: UIColor) -> UIColor {
@@ -66,7 +66,6 @@ class ProductCell: UICollectionViewCell {
     }
     
     @IBAction func heartButtonTapped(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         let cartProduct = SelectedProduct(product: selection.product, quantity: 1, price: selection.price)
         delegate?.productCell(wantsToAddToCart: cartProduct)
     }

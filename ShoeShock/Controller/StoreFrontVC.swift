@@ -40,6 +40,21 @@ class StoreFrontVC: UIViewController {
         discoverCollectionView.dataSource = self
         moreCollectionView.delegate = self
         moreCollectionView.dataSource = self
+        cartButton.isEnabled = false
+    }
+    
+    func resetStoreFront() {
+        cartQuantityLabel.title = "0"
+        cartQuantity = 0
+        cartButton.image = UIImage(systemName: "cart")
+        cartButton.isEnabled = false
+        cart.removeAll()
+    }
+    
+    func presentPurchaseCompleteAlert() {
+        let alert = UIAlertController(title: "Purchase Complete", message: "Enjoy your items!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Thanks!", style: .default))
+        present(alert, animated: true)
     }
     
     func updateCart(with product: SelectedProduct) {
@@ -54,7 +69,6 @@ class StoreFrontVC: UIViewController {
         if segue.identifier == "toAddToCartVC" {
             let addToCartVC = segue.destination as! AddToCartVC
             addToCartVC.selectedProduct = selectedProduct
-//            addToCartVC.selectedProductColor = selectedProductColor
             addToCartVC.delegate = self
         } else {
             let cartVC = segue.destination as! CartVC
@@ -116,6 +130,7 @@ extension StoreFrontVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension StoreFrontVC: AddToCartDelegate {
     func addToCartDelegate(wantsToUpdateCartWith product: SelectedProduct) {
         dismiss(animated: true)
+        cartButton.isEnabled = true
         updateCart(with: product)
     }
 }
@@ -124,7 +139,7 @@ extension StoreFrontVC: AddToCartDelegate {
 
 extension StoreFrontVC: ProductCellDelegate {
     func productCell(wantsToAddToCart product: SelectedProduct) {
-        print("heart product")
+        cartButton.isEnabled = true
         updateCart(with: product)
     }
 }
@@ -132,7 +147,14 @@ extension StoreFrontVC: ProductCellDelegate {
 //MARK: - CartVCDelegate
 
 extension StoreFrontVC: CartVCDelegate {
+    func completePurchase() {
+        resetStoreFront()
+        dismiss(animated: true)
+        presentPurchaseCompleteAlert()
+    }
+    
     func cartVCwantsToBeDismissed() {
+        resetStoreFront()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.dismiss(animated: true)
         }

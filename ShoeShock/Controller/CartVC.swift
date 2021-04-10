@@ -9,6 +9,7 @@ import UIKit
 
 protocol CartVCDelegate: class {
     func cartVCwantsToBeDismissed()
+    func completePurchase()
 }
 
 class CartVC: UIViewController {
@@ -44,6 +45,7 @@ class CartVC: UIViewController {
     }
     
     @IBAction func purchaseButtonTapped(_ sender: UIButton) {
+        delegate?.completePurchase()
     }
 }
 
