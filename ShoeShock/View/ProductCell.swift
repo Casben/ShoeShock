@@ -24,18 +24,12 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     
     weak var delegate: ProductCellDelegate?
-    var product: SelectedProduct!
+    var selection: SelectedProduct!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configure()
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        heartButton.setImage(UIImage(systemName: "plus.circle"), for: .normal)
-    }
-
     
     private func configure() {
         productBackGround.layer.cornerRadius = 10
@@ -44,7 +38,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func configureCell(with product: Product) {
-        self.product = SelectedProduct(product: product, quantity: 1, price: 0)
+        self.selection = SelectedProduct(product: product, quantity: 1, price: product.price)
         productBackGround.backgroundColor = .randomColor()
         
         productNameLabel.text = product.name
@@ -72,7 +66,8 @@ class ProductCell: UICollectionViewCell {
     }
     
     @IBAction func heartButtonTapped(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        delegate?.productCell(wantsToAddToCart: product)
+        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        let cartProduct = SelectedProduct(product: selection.product, quantity: 1, price: selection.price)
+        delegate?.productCell(wantsToAddToCart: cartProduct)
     }
 }

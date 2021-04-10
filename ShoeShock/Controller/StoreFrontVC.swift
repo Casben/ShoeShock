@@ -54,10 +54,11 @@ class StoreFrontVC: UIViewController {
         if segue.identifier == "toAddToCartVC" {
             let addToCartVC = segue.destination as! AddToCartVC
             addToCartVC.selectedProduct = selectedProduct
-            addToCartVC.selectedProductColor = selectedProductColor
+//            addToCartVC.selectedProductColor = selectedProductColor
             addToCartVC.delegate = self
         } else {
             let cartVC = segue.destination as! CartVC
+            cartVC.delegate = self
             cartVC.cart = cart
         }
     }
@@ -123,6 +124,18 @@ extension StoreFrontVC: AddToCartDelegate {
 
 extension StoreFrontVC: ProductCellDelegate {
     func productCell(wantsToAddToCart product: SelectedProduct) {
+        print("heart product")
         updateCart(with: product)
+    }
+}
+
+//MARK: - CartVCDelegate
+
+extension StoreFrontVC: CartVCDelegate {
+    func cartVCwantsToBeDismissed() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.dismiss(animated: true)
+        }
+        
     }
 }

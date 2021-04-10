@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol CartVCDelegate: class {
+    func cartVCwantsToBeDismissed()
+}
+
 class CartVC: UIViewController {
 
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var purchaseButton: PurchaseButton!
+    
+    weak var delegate: CartVCDelegate?
     
     var cart = Service.instance.cartPorducts
     var totalPrice: Int = 0
@@ -66,10 +72,16 @@ extension CartVC: CartCellDelegate {
         totalLabel.text = String(totalPrice)
     }
     
-    func cartCell(wantsToUpdateTotalPriceSubtract price: Int) {
+    func cartCell(_ cartCell: CartCell, wantsToUpdateTotalPriceSubtract price: Int) {
         totalPrice -= price
         totalLabel.text = String(totalPrice)
+        if cartCell.price == 0 {
+            guard let cellIndex = cartTableView.indexPath(for: cartCell) else { return }
+            cart.remove(at: cellIndex.row)
+            cartTableView.deleteRows(at: [cellIndex], with: .automatic)
+            if cart.count == 0 {
+                delegate?.cartVCwantsToBeDismissed()
+            }
+        }
     }
-    
-    
 }

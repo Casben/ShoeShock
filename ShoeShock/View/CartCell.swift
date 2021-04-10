@@ -9,7 +9,7 @@ import UIKit
 
 protocol CartCellDelegate: class {
     func cartCell(wantsToUpdateTotalPriceAdd price: Int)
-    func cartCell(wantsToUpdateTotalPriceSubtract price: Int)
+    func cartCell(_ cartCell: CartCell, wantsToUpdateTotalPriceSubtract price: Int)
 }
 
 class CartCell: UITableViewCell {
@@ -52,7 +52,7 @@ class CartCell: UITableViewCell {
         priceLabel.text = String(updatedPrice)
         quantityLabel.text = String(quantity)
         price = updatedPrice
-        delegate?.cartCell(wantsToUpdateTotalPriceAdd: price)
+        delegate?.cartCell(wantsToUpdateTotalPriceAdd: pricePerItem)
     }
     
     @IBAction func minusButtonTapped(_ sender: UIButton) {
@@ -62,7 +62,7 @@ class CartCell: UITableViewCell {
         priceLabel.text = String(updatedPrice)
         quantityLabel.text = String(quantity)
         price = updatedPrice
-        delegate?.cartCell(wantsToUpdateTotalPriceSubtract: price)
+        delegate?.cartCell(self, wantsToUpdateTotalPriceSubtract: pricePerItem)
     }
 
 }
